@@ -1,0 +1,71 @@
+﻿<Window x:Class="RealDocYD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealDocYD"
+        mc:Ignorable="d"
+        Title="RealDoc - Получение ссылки" Height="300" Width="400" MinWidth="400" MinHeight="250" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="93"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="93"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tblSiteNUmber" Margin="5" TextWrapping="Wrap" Text="Номер объекта"/>
+                <TextBox x:Name="tbxSiteNumber" Grid.Column="1" Margin="5" TextWrapping="Wrap" Background="#FFF8FFCB">
+                    <TextBox.Text>
+                        <Binding Path="SiteNum">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBlock x:Name="tblIssueNUmber" Margin="5" TextWrapping="Wrap" Text="Номер выпуска" Grid.Row="1"/>
+                <TextBox x:Name="tbxIssueNumber" Grid.Column="1" Margin="5" TextWrapping="Wrap" Grid.Row="1" Background="#FFF8FFCB">
+                    <TextBox.Text>
+                        <Binding Path="IssueNum">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <ProgressBar x:Name="pbWaiting" Margin="5" Grid.Row="2" Grid.ColumnSpan="2" Visibility="Collapsed"/>
+                <TextBlock x:Name="tblPath" Margin="5" TextWrapping="Wrap" Text="" Grid.Row="3" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="tblLink" Margin="5" TextWrapping="Wrap" Text="" Grid.Row="4" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Image x:Name="image" Margin="5" Source="{DynamicResource ImageLogo}" VerticalAlignment="Top"/>
+        </Grid>
+
+        <DockPanel Height="70" LastChildFill="False" Margin="11,11,11,12" Grid.Row="1" Width="372" Grid.ColumnSpan="2">
+            <Button x:Name="btnPublish" Style="{DynamicResource ButtonStyle}" Height="50" VerticalAlignment="Top" Width="75" Click="btnPublish_Click">
+                <Image Style="{DynamicResource IconImageStyle}" Source="{DynamicResource ImageAdd2-40}">
+                </Image>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>
